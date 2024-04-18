@@ -1,0 +1,29 @@
+version: "3"
+services:
+  catalog_server:
+    container_name: express_catalog
+    build:
+      context: D:\docker\catalogServer
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home:ro
+    ports:
+      - "3005:3005"
+  front_server:
+    container_name: express_front
+    build:
+      context: D:\docker\gatewayServer
+      dockerfile: Docker_file
+    volumes:
+      - .:/home:ro
+    ports:
+      - "3000:3000"
+  order_server:
+    container_name: express_order
+    build:
+      context: D:\docker\orderServer
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home:ro
+    ports:
+      - "3001:3001"
